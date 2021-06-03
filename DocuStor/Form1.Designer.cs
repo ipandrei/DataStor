@@ -31,8 +31,8 @@ namespace DocuStor
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.username_txtbox = new System.Windows.Forms.TextBox();
+            this.password_txtbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,19 +59,19 @@ namespace DocuStor
             this.label2.Text = "Password:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // username_txtbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(359, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 22);
-            this.textBox1.TabIndex = 2;
+            this.username_txtbox.Location = new System.Drawing.Point(359, 122);
+            this.username_txtbox.Name = "username_txtbox";
+            this.username_txtbox.Size = new System.Drawing.Size(206, 22);
+            this.username_txtbox.TabIndex = 2;
             // 
-            // textBox2
+            // password_txtbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(359, 192);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 22);
-            this.textBox2.TabIndex = 3;
+            this.password_txtbox.Location = new System.Drawing.Point(359, 192);
+            this.password_txtbox.Name = "password_txtbox";
+            this.password_txtbox.Size = new System.Drawing.Size(206, 22);
+            this.password_txtbox.TabIndex = 3;
             // 
             // button1
             // 
@@ -93,6 +93,7 @@ namespace DocuStor
             this.button2.TabIndex = 5;
             this.button2.Text = "OK";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Log_In
             // 
@@ -101,8 +102,8 @@ namespace DocuStor
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.password_txtbox);
+            this.Controls.Add(this.username_txtbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Log_In";
@@ -117,8 +118,8 @@ namespace DocuStor
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox username_txtbox;
+        private System.Windows.Forms.TextBox password_txtbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }

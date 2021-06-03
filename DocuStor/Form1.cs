@@ -36,5 +36,21 @@ namespace DocuStor
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataStorEntities context = new DataStorEntities();
+            if (username_txtbox.Text != string.Empty || password_txtbox.Text != string.Empty)
+            {
+                var user = context.Users.Where(a => a.UserName.Equals(username_txtbox.Text)).FirstOrDefault();
+                if(user!=null)
+                {
+                    if (user.Password.Equals(password_txtbox.Text))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Succes!");
+                    }
+                }
+            }
+        }
     }
 }
