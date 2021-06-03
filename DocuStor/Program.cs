@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace DocuStor
 {
-    static class Program
+    static partial class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -17,6 +17,8 @@ namespace DocuStor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Log_In());
+
         }
+
     }
 }

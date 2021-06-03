@@ -15,6 +15,13 @@ namespace DocuStor
         public Main()
         {
             InitializeComponent();
+
+            label1.Text = LoginInfo.UserFullName;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

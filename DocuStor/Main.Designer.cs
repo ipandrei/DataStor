@@ -30,22 +30,33 @@ namespace DocuStor
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1666, 9);
+            this.label1.Location = new System.Drawing.Point(1682, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(12, 12);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(1062, 22);
+            this.search.TabIndex = 1;
+            this.search.Text = "Search";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1740, 886);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "Main";
@@ -57,5 +68,6 @@ namespace DocuStor
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox search;
     }
 }

@@ -108,7 +108,7 @@ namespace DocuStor
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Log_In";
-            this.Text = "Form1";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Log_In_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

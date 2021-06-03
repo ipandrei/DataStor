@@ -47,6 +47,9 @@ namespace DocuStor
                 {
                     if (user.Password.Equals(password_txtbox.Text))
                     {
+                        LoginInfo.Username = user.UserName;
+                        LoginInfo.UserFullName = user.Name;
+                        
                         Main mform = new Main();
                         mform.Show();
                         this.Hide();
