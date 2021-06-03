@@ -70,6 +70,7 @@ namespace DocuStor
             // 
             this.password_txtbox.Location = new System.Drawing.Point(359, 192);
             this.password_txtbox.Name = "password_txtbox";
+            this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(206, 22);
             this.password_txtbox.TabIndex = 3;
             // 
