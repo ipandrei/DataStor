@@ -26,5 +26,6 @@ namespace DocuStor
         }
     
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Documents> DocumentsSet { get; set; }
     }
 }

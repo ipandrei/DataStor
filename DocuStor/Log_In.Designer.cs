@@ -41,7 +41,7 @@ namespace DocuStor
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(205, 115);
+            this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 29);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace DocuStor
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(209, 185);
+            this.label2.Location = new System.Drawing.Point(25, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 29);
             this.label2.TabIndex = 1;
@@ -61,23 +61,27 @@ namespace DocuStor
             // 
             // username_txtbox
             // 
-            this.username_txtbox.Location = new System.Drawing.Point(359, 122);
+            this.username_txtbox.Location = new System.Drawing.Point(175, 32);
             this.username_txtbox.Name = "username_txtbox";
             this.username_txtbox.Size = new System.Drawing.Size(206, 22);
             this.username_txtbox.TabIndex = 2;
+            this.username_txtbox.Text = "Admin";
+            this.username_txtbox.TextChanged += new System.EventHandler(this.username_txtbox_TextChanged);
             // 
             // password_txtbox
             // 
-            this.password_txtbox.Location = new System.Drawing.Point(359, 192);
+            this.password_txtbox.Location = new System.Drawing.Point(175, 102);
             this.password_txtbox.Name = "password_txtbox";
             this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(206, 22);
             this.password_txtbox.TabIndex = 3;
+            this.password_txtbox.Text = "secret";
+            this.password_txtbox.TextChanged += new System.EventHandler(this.password_txtbox_TextChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(210, 249);
+            this.button1.Location = new System.Drawing.Point(26, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 67);
             this.button1.TabIndex = 4;
@@ -87,8 +91,9 @@ namespace DocuStor
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(403, 249);
+            this.button2.Location = new System.Drawing.Point(219, 159);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 67);
             this.button2.TabIndex = 5;
@@ -98,9 +103,10 @@ namespace DocuStor
             // 
             // Log_In
             // 
+            this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(409, 260);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.password_txtbox);

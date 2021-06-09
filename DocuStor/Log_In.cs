@@ -73,5 +73,15 @@ namespace DocuStor
                 }
             }
         }
+
+        private void password_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void username_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

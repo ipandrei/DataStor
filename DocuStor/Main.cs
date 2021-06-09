@@ -17,11 +17,25 @@ namespace DocuStor
             InitializeComponent();
 
             label1.Text = LoginInfo.UserFullName;
+
+            //this.TopLevel = true;
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addContent_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Add Content";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+
+            }    
+            
         }
     }
 }
