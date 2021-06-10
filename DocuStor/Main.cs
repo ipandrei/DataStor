@@ -18,8 +18,8 @@ namespace DocuStor
 
             label1.Text = LoginInfo.UserFullName;
 
-            //this.TopLevel = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.TopLevel = true;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,7 +33,8 @@ namespace DocuStor
             ofd.Title = "Add Content";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-
+                AddContent addContent = new AddContent();
+                addContent.Show();
             }    
             
         }
