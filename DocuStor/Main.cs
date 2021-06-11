@@ -16,10 +16,11 @@ namespace DocuStor
         {
             InitializeComponent();
 
-            label1.Text = LoginInfo.UserFullName;
+            label1.Text = Globals.UserFullName;
 
-            this.TopLevel = true;
-            this.WindowState = FormWindowState.Maximized;
+            TopLevel = true;
+            CenterToScreen();
+            //WindowState = FormWindowState.Maximized;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,6 +34,8 @@ namespace DocuStor
             ofd.Title = "Add Content";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                Globals.FileTitle = ofd.SafeFileName;
+                Globals.FilePath = ofd.FileName;
                 AddContent addContent = new AddContent();
                 addContent.Show();
             }    

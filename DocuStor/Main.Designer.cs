@@ -35,7 +35,9 @@ namespace DocuStor
             this.panel1 = new System.Windows.Forms.Panel();
             this.addContent = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.resultsDgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +73,7 @@ namespace DocuStor
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.resultsDgv);
             this.panel1.Controls.Add(this.addContent);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.search);
@@ -96,6 +99,16 @@ namespace DocuStor
             this.panel2.Size = new System.Drawing.Size(604, 965);
             this.panel2.TabIndex = 6;
             // 
+            // resultsDgv
+            // 
+            this.resultsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultsDgv.Location = new System.Drawing.Point(3, 52);
+            this.resultsDgv.Name = "resultsDgv";
+            this.resultsDgv.RowHeadersWidth = 51;
+            this.resultsDgv.RowTemplate.Height = 24;
+            this.resultsDgv.Size = new System.Drawing.Size(1244, 954);
+            this.resultsDgv.TabIndex = 7;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -109,6 +122,7 @@ namespace DocuStor
             this.Text = "Main";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +136,6 @@ namespace DocuStor
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button addContent;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView resultsDgv;
     }
 }

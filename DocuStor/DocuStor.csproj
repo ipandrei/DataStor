@@ -64,7 +64,7 @@
     <Compile Include="Documents.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="LoginInfo.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Log_In.cs">
       <SubType>Form</SubType>
     </Compile>

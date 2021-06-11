@@ -16,7 +16,7 @@ namespace DocuStor
         {
             InitializeComponent();
 
-            this.CenterToScreen();
+            CenterToScreen();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,8 +49,8 @@ namespace DocuStor
                 {
                     if (user.Password.Equals(password_txtbox.Text))
                     {
-                        LoginInfo.Username = user.UserName;
-                        LoginInfo.UserFullName = user.Name;
+                        Globals.Username = user.UserName;
+                        Globals.UserFullName = user.Name;
                         
                         Main mform = new Main();
                         mform.Show();
