@@ -33,9 +33,9 @@ namespace DocuStor
             this.search = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.resultsDgv = new System.Windows.Forms.DataGridView();
             this.addContent = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.resultsDgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +82,20 @@ namespace DocuStor
             this.panel1.Size = new System.Drawing.Size(1250, 1009);
             this.panel1.TabIndex = 5;
             // 
+            // resultsDgv
+            // 
+            this.resultsDgv.AllowUserToAddRows = false;
+            this.resultsDgv.AllowUserToDeleteRows = false;
+            this.resultsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultsDgv.Location = new System.Drawing.Point(3, 52);
+            this.resultsDgv.Name = "resultsDgv";
+            this.resultsDgv.RowHeadersWidth = 51;
+            this.resultsDgv.RowTemplate.Height = 24;
+            this.resultsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.resultsDgv.Size = new System.Drawing.Size(1244, 954);
+            this.resultsDgv.TabIndex = 7;
+            this.resultsDgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellDoubleClick);
+            // 
             // addContent
             // 
             this.addContent.Location = new System.Drawing.Point(1204, 6);
@@ -98,17 +112,6 @@ namespace DocuStor
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(604, 965);
             this.panel2.TabIndex = 6;
-            // 
-            // resultsDgv
-            // 
-            this.resultsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultsDgv.Location = new System.Drawing.Point(3, 52);
-            this.resultsDgv.Name = "resultsDgv";
-            this.resultsDgv.RowHeadersWidth = 51;
-            this.resultsDgv.RowTemplate.Height = 24;
-            this.resultsDgv.Size = new System.Drawing.Size(1244, 954);
-            this.resultsDgv.TabIndex = 7;
-            this.resultsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellContentClick);
             // 
             // Main
             // 

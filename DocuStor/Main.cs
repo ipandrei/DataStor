@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,12 +61,35 @@ namespace DocuStor
             }
         }
 
-        private void resultsDgv_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void resultsDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedRow = resultsDgv.SelectedRows;
             foreach(var row in selectedRow)
             {
                 int id = (int)((DataGridViewRow)row).Cells[0].Value;
+                LoadData(id);
+            }
+
+            void LoadData(int id)
+            {
+                using (SqlConnection cn = Globals.GetConnection())
+                {
+                    string query = "SELECT Content,Title FROM Documents WHERE ID=@id";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cn.Open();
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        var title = reader["Title"].ToString();
+                        var content = (byte[])reader["Content"];
+
+                        File.WriteAllBytes(title, content);
+
+                        System.Diagnostics.Process.Start(title);
+                    }
+                }
+
             }
 
         }
