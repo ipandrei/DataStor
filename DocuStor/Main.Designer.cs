@@ -108,6 +108,7 @@ namespace DocuStor
             this.resultsDgv.RowTemplate.Height = 24;
             this.resultsDgv.Size = new System.Drawing.Size(1244, 954);
             this.resultsDgv.TabIndex = 7;
+            this.resultsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellContentClick);
             // 
             // Main
             // 
