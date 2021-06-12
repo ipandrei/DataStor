@@ -31,11 +31,11 @@ namespace DocuStor
         {
             this.label1 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resultsDgv = new System.Windows.Forms.DataGridView();
-            this.addContent = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.addContent = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.SuspendLayout();
@@ -61,16 +61,6 @@ namespace DocuStor
             this.search.TabIndex = 1;
             this.search.Text = "Search";
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::DocuStor.Properties.Resources.loupe;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(1154, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 41);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.resultsDgv);
@@ -94,17 +84,8 @@ namespace DocuStor
             this.resultsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.resultsDgv.Size = new System.Drawing.Size(1244, 954);
             this.resultsDgv.TabIndex = 7;
+            this.resultsDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellClick);
             this.resultsDgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellDoubleClick);
-            // 
-            // addContent
-            // 
-            this.addContent.Location = new System.Drawing.Point(1204, 6);
-            this.addContent.Name = "addContent";
-            this.addContent.Size = new System.Drawing.Size(43, 39);
-            this.addContent.TabIndex = 6;
-            this.addContent.Text = "button2";
-            this.addContent.UseVisualStyleBackColor = true;
-            this.addContent.Click += new System.EventHandler(this.addContent_Click);
             // 
             // panel2
             // 
@@ -112,6 +93,29 @@ namespace DocuStor
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(604, 965);
             this.panel2.TabIndex = 6;
+            // 
+            // addContent
+            // 
+            this.addContent.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addContent.BackgroundImage = global::DocuStor.Properties.Resources._1587992;
+            this.addContent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addContent.Location = new System.Drawing.Point(1204, 6);
+            this.addContent.Name = "addContent";
+            this.addContent.Size = new System.Drawing.Size(43, 39);
+            this.addContent.TabIndex = 6;
+            this.addContent.UseVisualStyleBackColor = false;
+            this.addContent.Click += new System.EventHandler(this.addContent_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::DocuStor.Properties.Resources.loupe;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(1154, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 41);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 

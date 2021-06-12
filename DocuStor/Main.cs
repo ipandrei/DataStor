@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +27,9 @@ namespace DocuStor
             //WindowState = FormWindowState.Maximized;
             LoadData();
         }
+
+        [DllImport("USER32.DLL")]
+        static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -49,7 +54,7 @@ namespace DocuStor
         {
             using (SqlConnection cn = Globals.GetConnection())
             {
-                string query = "SELECT ID, Title, CreatedAt FROM Documents";
+                string query = "SELECT ID, Title, CreatedAt FROM Documents ORDER BY createdAt DESC";
                 SqlDataAdapter adp = new SqlDataAdapter(query, cn);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -83,15 +88,47 @@ namespace DocuStor
                     {
                         var title = reader["Title"].ToString();
                         var content = (byte[])reader["Content"];
+                        Globals.Document = title;
 
                         File.WriteAllBytes(title, content);
 
-                        System.Diagnostics.Process.Start(title);
+                        Process.Start(title);
+
                     }
                 }
 
             }
 
+        }
+
+        private void resultsDgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string searchKey = search.Text;
+
+            using (SqlConnection cn = Globals.GetConnection())
+            {
+                string query = "SELECT ID, Title, CreatedAt FROM Documents WHERE Title LIKE '%' + @searchKey + '%' ORDER BY createdAt DESC";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("searchKey", searchKey.Trim());
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        resultsDgv.DataSource = dt;
+                    }
+                }
+
+                    
+            }
+                
         }
     }
 }

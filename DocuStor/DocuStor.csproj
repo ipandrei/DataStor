@@ -149,6 +149,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\1587992.png" />
     <None Include="Resources\loupe.png" />
   </ItemGroup>
   <ItemGroup>
