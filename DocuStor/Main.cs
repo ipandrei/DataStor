@@ -90,9 +90,10 @@ namespace DocuStor
                         var content = (byte[])reader["Content"];
                         Globals.Document = title;
 
-                        File.WriteAllBytes(title, content);
+                        var docTitle = DateTime.Now.ToString("ddMMyyyyhhmmss") + " " + title ;
+                        File.WriteAllBytes(docTitle, content);
 
-                        Process.Start(title);
+                        Process.Start(docTitle);
 
                     }
                 }
