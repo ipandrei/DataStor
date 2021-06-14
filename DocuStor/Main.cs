@@ -24,12 +24,8 @@ namespace DocuStor
 
             TopLevel = true;
             CenterToScreen();
-            //WindowState = FormWindowState.Maximized;
             LoadData();
         }
-
-        [DllImport("USER32.DLL")]
-        static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -54,8 +50,7 @@ namespace DocuStor
         {
             using (SqlConnection cn = Globals.GetConnection())
             {
-                string query = "SELECT ID, Title, CreatedAt FROM Documents ORDER BY createdAt DESC";
-                SqlDataAdapter adp = new SqlDataAdapter(query, cn);
+                SqlDataAdapter adp = new SqlDataAdapter(Globals.loadQuery, cn);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
@@ -113,8 +108,8 @@ namespace DocuStor
 
             using (SqlConnection cn = Globals.GetConnection())
             {
-                string query = "SELECT ID, Title, CreatedAt FROM Documents WHERE Title LIKE '%' + @searchKey + '%' ORDER BY createdAt DESC";
-                SqlCommand cmd = new SqlCommand(query, cn);
+                
+                SqlCommand cmd = new SqlCommand(Globals.searchQuery, cn);
                 cmd.Parameters.AddWithValue("searchKey", searchKey.Trim());
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
