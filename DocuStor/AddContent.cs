@@ -46,7 +46,7 @@ namespace DocuStor
                 //string extn = new FileInfo(Globals.FilePath).Extension;
                 string title = TitleTxtBx.Text;
                 var createdAt = DateTime.Now;
-                string query = "INSERT INTO Documents(Title,CreatedAt,Content)VALUES(@title,@createdAt, @data)";
+                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById)VALUES(@title,@createdAt, @data, @createdById)";
 
                 using(SqlConnection cn = Globals.GetConnection())
                 {
@@ -54,6 +54,7 @@ namespace DocuStor
                     cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = title;
                     cmd.Parameters.Add("@CreatedAt", SqlDbType.DateTime).Value = createdAt;
                     cmd.Parameters.Add("@data", SqlDbType.VarBinary).Value = buffer;
+                    cmd.Parameters.Add("@createdbyId", SqlDbType.Int).Value = Globals.UserId;
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }

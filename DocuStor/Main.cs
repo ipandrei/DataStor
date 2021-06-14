@@ -126,5 +126,15 @@ namespace DocuStor
             }
                 
         }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

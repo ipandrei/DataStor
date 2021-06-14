@@ -51,6 +51,7 @@ namespace DocuStor
                     {
                         Globals.Username = user.UserName;
                         Globals.UserFullName = user.Name;
+                        Globals.UserId = user.Id;
                         
                         Main mform = new Main();
                         mform.Show();
