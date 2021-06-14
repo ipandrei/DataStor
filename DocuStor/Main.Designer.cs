@@ -36,7 +36,7 @@ namespace DocuStor
             this.resultsDgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addContent = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +71,7 @@ namespace DocuStor
             // 
             this.panel1.Controls.Add(this.resultsDgv);
             this.panel1.Controls.Add(this.addContent);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.searchBtn);
             this.panel1.Controls.Add(this.search);
             this.panel1.Location = new System.Drawing.Point(12, 30);
             this.panel1.Name = "panel1";
@@ -112,16 +112,16 @@ namespace DocuStor
             this.addContent.UseVisualStyleBackColor = false;
             this.addContent.Click += new System.EventHandler(this.addContent_Click);
             // 
-            // button1
+            // searchBtn
             // 
-            this.button1.BackgroundImage = global::DocuStor.Properties.Resources.loupe;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(1154, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 41);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.searchBtn.BackgroundImage = global::DocuStor.Properties.Resources.loupe;
+            this.searchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchBtn.Location = new System.Drawing.Point(1154, 3);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(44, 41);
+            this.searchBtn.TabIndex = 2;
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // toolStrip1
             // 
@@ -162,6 +162,7 @@ namespace DocuStor
             // 
             // Main
             // 
+            this.AcceptButton = this.searchBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -172,6 +173,7 @@ namespace DocuStor
             this.Controls.Add(this.panel1);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).EndInit();
@@ -186,7 +188,7 @@ namespace DocuStor
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox search;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button addContent;
         private System.Windows.Forms.Panel panel2;

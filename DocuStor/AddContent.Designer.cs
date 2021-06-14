@@ -82,7 +82,7 @@ namespace DocuStor
             this.Controls.Add(this.TitleTxtBx);
             this.Controls.Add(this.label1);
             this.Name = "AddContent";
-            this.Text = "AddContent";
+            this.Text = "Add Content";
             this.ResumeLayout(false);
             this.PerformLayout();
 

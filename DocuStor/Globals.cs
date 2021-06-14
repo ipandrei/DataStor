@@ -21,7 +21,7 @@ namespace DocuStor
 
         public static string loadQuery = "SELECT d.Id, d.Title, d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id ORDER BY d.CreatedAt DESC";
             
-        public static string searchQuery = "SELECT ID, Title, CreatedAt FROM Documents WHERE Title LIKE '%' + @searchKey + '%' ORDER BY createdAt DESC";
+        public static string searchQuery = "SELECT d.Id, d.Title, d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id WHERE Title LIKE '%' + @searchKey + '%' ORDER BY d.CreatedAt DESC";
 
         public static SqlConnection GetConnection()
         {
