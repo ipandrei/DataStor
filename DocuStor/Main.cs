@@ -40,6 +40,7 @@ namespace DocuStor
             {
                 Globals.FileTitle = ofd.SafeFileName;
                 Globals.FilePath = ofd.FileName;
+                Globals.FileTitleWithoutExtension = Path.GetFileNameWithoutExtension(Globals.FilePath);
                 AddContent addContent = new AddContent();
                 addContent.Show();
             }    
@@ -74,7 +75,7 @@ namespace DocuStor
             {
                 using (SqlConnection cn = Globals.GetConnection())
                 {
-                    string query = "SELECT Content,Title FROM Documents WHERE ID=@id";
+                    string query = "SELECT Content,Title, Extension FROM Documents WHERE ID=@id";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cn.Open();
@@ -82,10 +83,11 @@ namespace DocuStor
                     if (reader.Read())
                     {
                         var title = reader["Title"].ToString();
+                        var extn = reader["Extension"].ToString();
                         var content = (byte[])reader["Content"];
                         Globals.Document = title;
 
-                        var docTitle = DateTime.Now.ToString("ddMMyyyyhhmmss") + " " + title ;
+                        var docTitle = DateTime.Now.ToString("ddMMyyyyhhmmss") + " " + title + extn ;
                         File.WriteAllBytes(docTitle, content);
 
                         Process.Start(docTitle);

@@ -20,7 +20,7 @@ namespace DocuStor
 
             CenterToScreen();
 
-            TitleTxtBx.Text = Globals.FileTitle;
+            TitleTxtBx.Text = Globals.FileTitleWithoutExtension;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,16 +45,18 @@ namespace DocuStor
 
                 //string extn = new FileInfo(Globals.FilePath).Extension;
                 string title = TitleTxtBx.Text;
+                string extn = new FileInfo(Globals.FileTitle).Extension;
                 var createdAt = DateTime.Now;
-                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById)VALUES(@title,@createdAt, @data, @createdById)";
+                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById, Extension)VALUES(@title,@createdAt, @data, @createdById, @extension)";
 
                 using(SqlConnection cn = Globals.GetConnection())
                 {
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = title;
-                    cmd.Parameters.Add("@CreatedAt", SqlDbType.DateTime).Value = createdAt;
+                    cmd.Parameters.Add("@createdAt", SqlDbType.DateTime).Value = createdAt;
                     cmd.Parameters.Add("@data", SqlDbType.VarBinary).Value = buffer;
                     cmd.Parameters.Add("@createdbyId", SqlDbType.Int).Value = Globals.UserId;
+                    cmd.Parameters.Add("@extension", SqlDbType.Char).Value = extn;
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
