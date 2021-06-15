@@ -81,7 +81,7 @@ namespace DocuStor
                         var content = (byte[])reader["Content"];
                         Globals.Document = title;
 
-                        var docTitle = DateTime.Now.ToString("ddMMyyyyhhmmss") + " " + title + extn ;
+                        var docTitle = Path.GetTempPath() + DateTime.Now.ToString("ddMMyyyyhhmmss") + " " + title + extn ;
                         File.WriteAllBytes(docTitle, content);
 
                         Process.Start(docTitle);

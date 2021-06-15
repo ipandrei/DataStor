@@ -30,6 +30,7 @@ namespace DocuStor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddContent));
             this.label1 = new System.Windows.Forms.Label();
             this.TitleTxtBx = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -38,14 +39,14 @@ namespace DocuStor
             this.DescriptionLbl = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.documentCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataStorCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataStorCategories = new DocuStor.DataStorCategories();
-            this.documentCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.documentCategoriesTableAdapter = new DocuStor.DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +126,11 @@ namespace DocuStor
             this.comboBox1.TabIndex = 7;
             this.comboBox1.ValueMember = "Id";
             // 
+            // documentCategoriesBindingSource
+            // 
+            this.documentCategoriesBindingSource.DataMember = "DocumentCategories";
+            this.documentCategoriesBindingSource.DataSource = this.dataStorCategoriesBindingSource;
+            // 
             // dataStorCategoriesBindingSource
             // 
             this.dataStorCategoriesBindingSource.DataSource = this.dataStorCategories;
@@ -135,11 +141,6 @@ namespace DocuStor
             // 
             this.dataStorCategories.DataSetName = "DataStorCategories";
             this.dataStorCategories.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // documentCategoriesBindingSource
-            // 
-            this.documentCategoriesBindingSource.DataMember = "DocumentCategories";
-            this.documentCategoriesBindingSource.DataSource = this.dataStorCategoriesBindingSource;
             // 
             // documentCategoriesTableAdapter
             // 
@@ -169,12 +170,13 @@ namespace DocuStor
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.TitleTxtBx);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddContent";
             this.Text = "Add Content";
             this.Load += new System.EventHandler(this.AddContent_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

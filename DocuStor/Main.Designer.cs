@@ -470,6 +470,7 @@ namespace DocuStor
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "DocuStor";
             this.Load += new System.EventHandler(this.Main_Load);

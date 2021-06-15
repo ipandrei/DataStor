@@ -29,6 +29,7 @@ namespace DocuStor
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Log_In));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.username_txtbox = new System.Windows.Forms.TextBox();
@@ -113,6 +114,7 @@ namespace DocuStor
             this.Controls.Add(this.username_txtbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Log_In";
             this.Text = "Log In";
             this.Load += new System.EventHandler(this.Log_In_Load);
