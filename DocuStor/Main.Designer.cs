@@ -64,6 +64,7 @@ namespace DocuStor
             this.extensionTxtBx = new System.Windows.Forms.TextBox();
             this.descriptionLbl = new System.Windows.Forms.Label();
             this.descriptionTxtBx = new System.Windows.Forms.RichTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -180,6 +181,7 @@ namespace DocuStor
             this.saveMetdataBtn.TabIndex = 0;
             this.saveMetdataBtn.Text = "Save";
             this.saveMetdataBtn.UseVisualStyleBackColor = false;
+            this.saveMetdataBtn.Click += new System.EventHandler(this.saveMetdataBtn_Click);
             // 
             // cancelMetadataBtn
             // 
@@ -195,10 +197,11 @@ namespace DocuStor
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1902, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(2378, 39);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -211,7 +214,7 @@ namespace DocuStor
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(60, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(60, 36);
             this.toolStripDropDownButton1.Text = "Menu";
             // 
             // refreshToolStripMenuItem
@@ -252,7 +255,7 @@ namespace DocuStor
             // 
             this.createdAtLbl.AutoSize = true;
             this.createdAtLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdAtLbl.Location = new System.Drawing.Point(42, 603);
+            this.createdAtLbl.Location = new System.Drawing.Point(42, 552);
             this.createdAtLbl.Name = "createdAtLbl";
             this.createdAtLbl.Size = new System.Drawing.Size(103, 25);
             this.createdAtLbl.TabIndex = 3;
@@ -262,7 +265,7 @@ namespace DocuStor
             // 
             this.createdByLbl.AutoSize = true;
             this.createdByLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdByLbl.Location = new System.Drawing.Point(42, 553);
+            this.createdByLbl.Location = new System.Drawing.Point(42, 601);
             this.createdByLbl.Name = "createdByLbl";
             this.createdByLbl.Size = new System.Drawing.Size(108, 25);
             this.createdByLbl.TabIndex = 4;
@@ -310,7 +313,7 @@ namespace DocuStor
             // createdAtTxtBx
             // 
             this.createdAtTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdAtTxtBx.Location = new System.Drawing.Point(178, 553);
+            this.createdAtTxtBx.Location = new System.Drawing.Point(178, 601);
             this.createdAtTxtBx.Name = "createdAtTxtBx";
             this.createdAtTxtBx.ReadOnly = true;
             this.createdAtTxtBx.Size = new System.Drawing.Size(400, 30);
@@ -319,7 +322,7 @@ namespace DocuStor
             // createdByTxtBx
             // 
             this.createdByTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdByTxtBx.Location = new System.Drawing.Point(178, 603);
+            this.createdByTxtBx.Location = new System.Drawing.Point(178, 552);
             this.createdByTxtBx.Name = "createdByTxtBx";
             this.createdByTxtBx.ReadOnly = true;
             this.createdByTxtBx.Size = new System.Drawing.Size(400, 30);
@@ -400,6 +403,15 @@ namespace DocuStor
             this.descriptionTxtBx.TabIndex = 16;
             this.descriptionTxtBx.Text = "";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(62, 36);
+            this.toolStripButton1.Text = "Update";
+            // 
             // Main
             // 
             this.AcceptButton = this.searchBtn;
@@ -464,5 +476,6 @@ namespace DocuStor
         private System.Windows.Forms.Label modifiedAtLbl;
         private System.Windows.Forms.RichTextBox descriptionTxtBx;
         private System.Windows.Forms.Label descriptionLbl;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
