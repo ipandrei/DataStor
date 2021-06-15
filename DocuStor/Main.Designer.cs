@@ -67,6 +67,7 @@ namespace DocuStor
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.documentCategoriesTableAdapter = new DocuStor.DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bigTitleTxtBx = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -114,11 +115,12 @@ namespace DocuStor
             // 
             this.resultsDgv.AllowUserToAddRows = false;
             this.resultsDgv.AllowUserToDeleteRows = false;
+            this.resultsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.resultsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultsDgv.Location = new System.Drawing.Point(3, 50);
             this.resultsDgv.Name = "resultsDgv";
             this.resultsDgv.ReadOnly = true;
-            this.resultsDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.resultsDgv.RowHeadersWidth = 55;
             this.resultsDgv.RowTemplate.Height = 24;
             this.resultsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.resultsDgv.Size = new System.Drawing.Size(1244, 941);
@@ -155,6 +157,7 @@ namespace DocuStor
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.bigTitleTxtBx);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.descriptionTxtBx);
             this.panel2.Controls.Add(this.descriptionLbl);
@@ -443,6 +446,18 @@ namespace DocuStor
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // bigTitleTxtBx
+            // 
+            this.bigTitleTxtBx.BackColor = System.Drawing.Color.White;
+            this.bigTitleTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bigTitleTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigTitleTxtBx.Location = new System.Drawing.Point(208, 30);
+            this.bigTitleTxtBx.Multiline = true;
+            this.bigTitleTxtBx.Name = "bigTitleTxtBx";
+            this.bigTitleTxtBx.ReadOnly = true;
+            this.bigTitleTxtBx.Size = new System.Drawing.Size(370, 175);
+            this.bigTitleTxtBx.TabIndex = 19;
+            // 
             // Main
             // 
             this.AcceptButton = this.searchBtn;
@@ -513,5 +528,6 @@ namespace DocuStor
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox bigTitleTxtBx;
     }
 }

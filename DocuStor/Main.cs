@@ -128,6 +128,7 @@ namespace DocuStor
                         modifiedByTxtBx.Text = reader["ModifiedBy"].ToString();
                         descriptionTxtBx.Text = reader["Description"].ToString();
                         extensionTxtBx.Text = reader["Extension"].ToString();
+                        bigTitleTxtBx.Text = titleTxtBx.Text;
                     }
                 }
 
@@ -228,7 +229,7 @@ namespace DocuStor
                     cmd.ExecuteNonQuery();
                 }
 
-                LoadData();
+                refreshMetadata();
 
             }
         }
