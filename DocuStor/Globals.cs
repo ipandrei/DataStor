@@ -20,9 +20,9 @@ namespace DocuStor
 
         public static string Document;
 
-        public static string loadQuery = "SELECT d.Id, d.Title, d.Extension, d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id ORDER BY d.CreatedAt DESC";
+        public static string loadQuery = "SELECT d.Id, d.Title, d.Extension, c.Name as 'Document Category', d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id LEFT JOIN DocumentCategories c ON d.CategoryId = c.Id ORDER BY d.CreatedAt DESC";
             
-        public static string searchQuery = "SELECT d.Id, d.Title, d.Extension, d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id WHERE Title LIKE '%' + @searchKey + '%' ORDER BY d.CreatedAt DESC";
+        public static string searchQuery = "SELECT d.Id, d.Title, d.Extension, c.Name as 'Document Category', d.CreatedAt, u.Name as CreatedBy FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id LEFT JOIN DocumentCategories c ON d.CategoryId = c.Id WHERE Title LIKE '%' + @searchKey + '%' ORDER BY d.CreatedAt DESC";
 
         public static SqlConnection GetConnection()
         {
