@@ -50,7 +50,7 @@ namespace DocuStor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 174);
+            this.label1.Location = new System.Drawing.Point(16, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 0;
@@ -59,14 +59,14 @@ namespace DocuStor
             // 
             // TitleTxtBx
             // 
-            this.TitleTxtBx.Location = new System.Drawing.Point(146, 171);
+            this.TitleTxtBx.Location = new System.Drawing.Point(116, 175);
             this.TitleTxtBx.Name = "TitleTxtBx";
             this.TitleTxtBx.Size = new System.Drawing.Size(288, 22);
             this.TitleTxtBx.TabIndex = 1;
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(258, 689);
+            this.saveBtn.Location = new System.Drawing.Point(217, 449);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(88, 38);
             this.saveBtn.TabIndex = 2;
@@ -77,7 +77,7 @@ namespace DocuStor
             // closeBtn
             // 
             this.closeBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.closeBtn.Location = new System.Drawing.Point(352, 689);
+            this.closeBtn.Location = new System.Drawing.Point(311, 449);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(93, 38);
             this.closeBtn.TabIndex = 3;
@@ -88,7 +88,7 @@ namespace DocuStor
             // categoryLbl
             // 
             this.categoryLbl.AutoSize = true;
-            this.categoryLbl.Location = new System.Drawing.Point(46, 226);
+            this.categoryLbl.Location = new System.Drawing.Point(16, 230);
             this.categoryLbl.Name = "categoryLbl";
             this.categoryLbl.Size = new System.Drawing.Size(65, 17);
             this.categoryLbl.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace DocuStor
             // DescriptionLbl
             // 
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(46, 275);
+            this.DescriptionLbl.Location = new System.Drawing.Point(16, 279);
             this.DescriptionLbl.Name = "DescriptionLbl";
             this.DescriptionLbl.Size = new System.Drawing.Size(79, 17);
             this.DescriptionLbl.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace DocuStor
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(146, 275);
+            this.richTextBox1.Location = new System.Drawing.Point(116, 279);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(288, 164);
             this.richTextBox1.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace DocuStor
             this.comboBox1.DataSource = this.documentCategoriesBindingSource;
             this.comboBox1.DisplayMember = "Name";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(146, 223);
+            this.comboBox1.Location = new System.Drawing.Point(116, 227);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(288, 24);
             this.comboBox1.TabIndex = 7;
@@ -145,10 +145,9 @@ namespace DocuStor
             // 
             // AddContent
             // 
-            this.AcceptButton = this.saveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 744);
+            this.ClientSize = new System.Drawing.Size(416, 495);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.DescriptionLbl);

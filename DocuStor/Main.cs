@@ -101,7 +101,36 @@ namespace DocuStor
 
         private void resultsDgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+            var selectedRow = resultsDgv.SelectedRows;
+            foreach (var row in selectedRow)
+            {
+                int id = (int)((DataGridViewRow)row).Cells[0].Value;
+                LoadData(id);
+            }
+
+            void LoadData(int id)
+            {
+                using (SqlConnection cn = Globals.GetConnection())
+                {
+                    string query = "SELECT d.Id, d.Title, d.Extension, c.Id as idOfCategory, d.CreatedAt, u.Name as CreatedBy, d.Description FROM Documents d LEFT JOIN Users u ON d.CreatedById = u.Id LEFT JOIN DocumentCategories c ON d.CategoryId = c.Id WHERE d.ID=@id ";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cn.Open();
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        titleTxtBx.Text = reader["Title"].ToString();
+                        categogoryCbx.SelectedValue = reader["idOfCategory"].ToString();
+                        createdAtTxtBx.Text = reader["CreatedAt"].ToString();
+                        createdByTxtBx.Text = reader["CreatedBy"].ToString();
+
+                        descriptionTxtBx.Text = reader["Description"].ToString();
+
+                    }
+                }
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,10 +170,22 @@ namespace DocuStor
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataStorCategories.DocumentCategories' table. You can move, or remove it, as needed.
+            this.documentCategoriesTableAdapter.Fill(this.dataStorCategories.DocumentCategories);
 
         }
 
         private void cancelMetadataBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resultsDgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

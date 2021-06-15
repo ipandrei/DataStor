@@ -48,7 +48,8 @@ namespace DocuStor
                 string extn = new FileInfo(Globals.FileTitle).Extension;
                 var createdAt = DateTime.Now;
                 var categoryId = comboBox1.SelectedValue;
-                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById, Extension, CategoryId)VALUES(@title,@createdAt, @data, @createdById, @extension, @categoryId)";
+                var description = richTextBox1.Text;
+                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById, Extension, CategoryId, Description)VALUES(@title,@createdAt, @data, @createdById, @extension, @categoryId, @description)";
 
                 using(SqlConnection cn = Globals.GetConnection())
                 {
@@ -59,6 +60,7 @@ namespace DocuStor
                     cmd.Parameters.Add("@createdbyId", SqlDbType.Int).Value = Globals.UserId;
                     cmd.Parameters.Add("@extension", SqlDbType.Char).Value = extn;
                     cmd.Parameters.Add("@categoryId", SqlDbType.Int).Value = categoryId;
+                    cmd.Parameters.Add("@description", SqlDbType.Text).Value = description;
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }

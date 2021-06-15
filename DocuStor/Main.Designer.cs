@@ -29,6 +29,7 @@ namespace DocuStor
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.TextBox();
@@ -43,10 +44,33 @@ namespace DocuStor
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.titleLbl = new System.Windows.Forms.Label();
+            this.categoryLbl = new System.Windows.Forms.Label();
+            this.createdAtLbl = new System.Windows.Forms.Label();
+            this.createdByLbl = new System.Windows.Forms.Label();
+            this.titleTxtBx = new System.Windows.Forms.TextBox();
+            this.categogoryCbx = new System.Windows.Forms.ComboBox();
+            this.dataStorCategories = new DocuStor.DataStorCategories();
+            this.dataStorCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.documentCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.documentCategoriesTableAdapter = new DocuStor.DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter();
+            this.createdAtTxtBx = new System.Windows.Forms.TextBox();
+            this.createdByTxtBx = new System.Windows.Forms.TextBox();
+            this.modifiedAtLbl = new System.Windows.Forms.Label();
+            this.modifiedByLbl = new System.Windows.Forms.Label();
+            this.extensionLbl = new System.Windows.Forms.Label();
+            this.modifiedAtTxtBx = new System.Windows.Forms.TextBox();
+            this.modifiedByTxtBx = new System.Windows.Forms.TextBox();
+            this.extensionTxtBx = new System.Windows.Forms.TextBox();
+            this.descriptionLbl = new System.Windows.Forms.Label();
+            this.descriptionTxtBx = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +78,7 @@ namespace DocuStor
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1795, 29);
+            this.label1.Location = new System.Drawing.Point(1795, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 36);
             this.label1.TabIndex = 0;
@@ -91,10 +115,11 @@ namespace DocuStor
             this.resultsDgv.RowHeadersWidth = 51;
             this.resultsDgv.RowTemplate.Height = 24;
             this.resultsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.resultsDgv.Size = new System.Drawing.Size(1244, 956);
+            this.resultsDgv.Size = new System.Drawing.Size(1244, 941);
             this.resultsDgv.TabIndex = 7;
             this.resultsDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellClick);
             this.resultsDgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellDoubleClick);
+            this.resultsDgv.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.resultsDgv_DataBindingComplete);
             // 
             // addContent
             // 
@@ -122,12 +147,29 @@ namespace DocuStor
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.descriptionTxtBx);
+            this.panel2.Controls.Add(this.descriptionLbl);
+            this.panel2.Controls.Add(this.extensionTxtBx);
+            this.panel2.Controls.Add(this.modifiedByTxtBx);
+            this.panel2.Controls.Add(this.modifiedAtTxtBx);
+            this.panel2.Controls.Add(this.extensionLbl);
+            this.panel2.Controls.Add(this.modifiedByLbl);
+            this.panel2.Controls.Add(this.modifiedAtLbl);
+            this.panel2.Controls.Add(this.createdByTxtBx);
+            this.panel2.Controls.Add(this.createdAtTxtBx);
+            this.panel2.Controls.Add(this.categogoryCbx);
+            this.panel2.Controls.Add(this.titleTxtBx);
+            this.panel2.Controls.Add(this.createdByLbl);
+            this.panel2.Controls.Add(this.createdAtLbl);
+            this.panel2.Controls.Add(this.categoryLbl);
+            this.panel2.Controls.Add(this.titleLbl);
             this.panel2.Controls.Add(this.saveMetdataBtn);
             this.panel2.Controls.Add(this.cancelMetadataBtn);
             this.panel2.Location = new System.Drawing.Point(1286, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(604, 941);
             this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // saveMetdataBtn
             // 
@@ -186,6 +228,178 @@ namespace DocuStor
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // titleLbl
+            // 
+            this.titleLbl.AutoSize = true;
+            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLbl.Location = new System.Drawing.Point(42, 311);
+            this.titleLbl.Name = "titleLbl";
+            this.titleLbl.Size = new System.Drawing.Size(49, 25);
+            this.titleLbl.TabIndex = 1;
+            this.titleLbl.Text = "Title";
+            // 
+            // categoryLbl
+            // 
+            this.categoryLbl.AutoSize = true;
+            this.categoryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLbl.Location = new System.Drawing.Point(42, 358);
+            this.categoryLbl.Name = "categoryLbl";
+            this.categoryLbl.Size = new System.Drawing.Size(92, 25);
+            this.categoryLbl.TabIndex = 2;
+            this.categoryLbl.Text = "Category";
+            // 
+            // createdAtLbl
+            // 
+            this.createdAtLbl.AutoSize = true;
+            this.createdAtLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdAtLbl.Location = new System.Drawing.Point(42, 603);
+            this.createdAtLbl.Name = "createdAtLbl";
+            this.createdAtLbl.Size = new System.Drawing.Size(103, 25);
+            this.createdAtLbl.TabIndex = 3;
+            this.createdAtLbl.Text = "Created at";
+            // 
+            // createdByLbl
+            // 
+            this.createdByLbl.AutoSize = true;
+            this.createdByLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdByLbl.Location = new System.Drawing.Point(42, 553);
+            this.createdByLbl.Name = "createdByLbl";
+            this.createdByLbl.Size = new System.Drawing.Size(108, 25);
+            this.createdByLbl.TabIndex = 4;
+            this.createdByLbl.Text = "Created by";
+            // 
+            // titleTxtBx
+            // 
+            this.titleTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTxtBx.Location = new System.Drawing.Point(178, 311);
+            this.titleTxtBx.Name = "titleTxtBx";
+            this.titleTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.titleTxtBx.TabIndex = 5;
+            // 
+            // categogoryCbx
+            // 
+            this.categogoryCbx.DataSource = this.documentCategoriesBindingSource;
+            this.categogoryCbx.DisplayMember = "Name";
+            this.categogoryCbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categogoryCbx.FormattingEnabled = true;
+            this.categogoryCbx.Location = new System.Drawing.Point(178, 358);
+            this.categogoryCbx.Name = "categogoryCbx";
+            this.categogoryCbx.Size = new System.Drawing.Size(400, 33);
+            this.categogoryCbx.TabIndex = 6;
+            this.categogoryCbx.ValueMember = "Id";
+            // 
+            // dataStorCategories
+            // 
+            this.dataStorCategories.DataSetName = "DataStorCategories";
+            this.dataStorCategories.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataStorCategoriesBindingSource
+            // 
+            this.dataStorCategoriesBindingSource.DataSource = this.dataStorCategories;
+            this.dataStorCategoriesBindingSource.Position = 0;
+            // 
+            // documentCategoriesBindingSource
+            // 
+            this.documentCategoriesBindingSource.DataMember = "DocumentCategories";
+            this.documentCategoriesBindingSource.DataSource = this.dataStorCategoriesBindingSource;
+            // 
+            // documentCategoriesTableAdapter
+            // 
+            this.documentCategoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // createdAtTxtBx
+            // 
+            this.createdAtTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdAtTxtBx.Location = new System.Drawing.Point(178, 553);
+            this.createdAtTxtBx.Name = "createdAtTxtBx";
+            this.createdAtTxtBx.ReadOnly = true;
+            this.createdAtTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.createdAtTxtBx.TabIndex = 7;
+            // 
+            // createdByTxtBx
+            // 
+            this.createdByTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdByTxtBx.Location = new System.Drawing.Point(178, 603);
+            this.createdByTxtBx.Name = "createdByTxtBx";
+            this.createdByTxtBx.ReadOnly = true;
+            this.createdByTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.createdByTxtBx.TabIndex = 8;
+            // 
+            // modifiedAtLbl
+            // 
+            this.modifiedAtLbl.AutoSize = true;
+            this.modifiedAtLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedAtLbl.Location = new System.Drawing.Point(42, 502);
+            this.modifiedAtLbl.Name = "modifiedAtLbl";
+            this.modifiedAtLbl.Size = new System.Drawing.Size(107, 25);
+            this.modifiedAtLbl.TabIndex = 9;
+            this.modifiedAtLbl.Text = "Modified at";
+            // 
+            // modifiedByLbl
+            // 
+            this.modifiedByLbl.AutoSize = true;
+            this.modifiedByLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedByLbl.Location = new System.Drawing.Point(42, 452);
+            this.modifiedByLbl.Name = "modifiedByLbl";
+            this.modifiedByLbl.Size = new System.Drawing.Size(112, 25);
+            this.modifiedByLbl.TabIndex = 10;
+            this.modifiedByLbl.Text = "Modified by";
+            // 
+            // extensionLbl
+            // 
+            this.extensionLbl.AutoSize = true;
+            this.extensionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extensionLbl.Location = new System.Drawing.Point(42, 407);
+            this.extensionLbl.Name = "extensionLbl";
+            this.extensionLbl.Size = new System.Drawing.Size(98, 25);
+            this.extensionLbl.TabIndex = 11;
+            this.extensionLbl.Text = "Extension";
+            // 
+            // modifiedAtTxtBx
+            // 
+            this.modifiedAtTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedAtTxtBx.Location = new System.Drawing.Point(178, 502);
+            this.modifiedAtTxtBx.Name = "modifiedAtTxtBx";
+            this.modifiedAtTxtBx.ReadOnly = true;
+            this.modifiedAtTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.modifiedAtTxtBx.TabIndex = 12;
+            // 
+            // modifiedByTxtBx
+            // 
+            this.modifiedByTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifiedByTxtBx.Location = new System.Drawing.Point(178, 452);
+            this.modifiedByTxtBx.Name = "modifiedByTxtBx";
+            this.modifiedByTxtBx.ReadOnly = true;
+            this.modifiedByTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.modifiedByTxtBx.TabIndex = 13;
+            // 
+            // extensionTxtBx
+            // 
+            this.extensionTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extensionTxtBx.Location = new System.Drawing.Point(178, 407);
+            this.extensionTxtBx.Name = "extensionTxtBx";
+            this.extensionTxtBx.ReadOnly = true;
+            this.extensionTxtBx.Size = new System.Drawing.Size(400, 30);
+            this.extensionTxtBx.TabIndex = 14;
+            // 
+            // descriptionLbl
+            // 
+            this.descriptionLbl.AutoSize = true;
+            this.descriptionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLbl.Location = new System.Drawing.Point(42, 657);
+            this.descriptionLbl.Name = "descriptionLbl";
+            this.descriptionLbl.Size = new System.Drawing.Size(99, 25);
+            this.descriptionLbl.TabIndex = 15;
+            this.descriptionLbl.Text = "Decription";
+            // 
+            // descriptionTxtBx
+            // 
+            this.descriptionTxtBx.Location = new System.Drawing.Point(178, 657);
+            this.descriptionTxtBx.Name = "descriptionTxtBx";
+            this.descriptionTxtBx.Size = new System.Drawing.Size(400, 201);
+            this.descriptionTxtBx.TabIndex = 16;
+            this.descriptionTxtBx.Text = "";
+            // 
             // Main
             // 
             this.AcceptButton = this.searchBtn;
@@ -204,8 +418,12 @@ namespace DocuStor
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +444,25 @@ namespace DocuStor
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button saveMetdataBtn;
         private System.Windows.Forms.Button cancelMetadataBtn;
+        private System.Windows.Forms.TextBox titleTxtBx;
+        private System.Windows.Forms.Label createdByLbl;
+        private System.Windows.Forms.Label createdAtLbl;
+        private System.Windows.Forms.Label categoryLbl;
+        private System.Windows.Forms.Label titleLbl;
+        private System.Windows.Forms.ComboBox categogoryCbx;
+        private System.Windows.Forms.BindingSource dataStorCategoriesBindingSource;
+        private DataStorCategories dataStorCategories;
+        private System.Windows.Forms.BindingSource documentCategoriesBindingSource;
+        private DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter documentCategoriesTableAdapter;
+        private System.Windows.Forms.TextBox createdAtTxtBx;
+        private System.Windows.Forms.TextBox createdByTxtBx;
+        private System.Windows.Forms.TextBox extensionTxtBx;
+        private System.Windows.Forms.TextBox modifiedByTxtBx;
+        private System.Windows.Forms.TextBox modifiedAtTxtBx;
+        private System.Windows.Forms.Label extensionLbl;
+        private System.Windows.Forms.Label modifiedByLbl;
+        private System.Windows.Forms.Label modifiedAtLbl;
+        private System.Windows.Forms.RichTextBox descriptionTxtBx;
+        private System.Windows.Forms.Label descriptionLbl;
     }
 }
