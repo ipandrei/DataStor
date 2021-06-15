@@ -471,7 +471,7 @@ namespace DocuStor
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "DocuStor";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
