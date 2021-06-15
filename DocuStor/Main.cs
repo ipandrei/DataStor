@@ -127,6 +127,7 @@ namespace DocuStor
                         modifiedAtTxtBx.Text = reader["ModifiedAt"].ToString();
                         modifiedByTxtBx.Text = reader["ModifiedBy"].ToString();
                         descriptionTxtBx.Text = reader["Description"].ToString();
+                        extensionTxtBx.Text = reader["Extension"].ToString();
                     }
                 }
 
@@ -223,7 +224,54 @@ namespace DocuStor
                 LoadData();
 
             }
-        } 
-           
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+            /* OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Update Content";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+
+                
+            }
+
+
+            var selectedRow = resultsDgv.SelectedRows;
+            foreach (var row in selectedRow)
+            {
+                int id = (int)((DataGridViewRow)row).Cells[0].Value;
+                updateData(id);
+            }
+
+            void updateData(int id)
+            {
+                string title = titleTxtBx.Text;
+                var categoryId = categogoryCbx.SelectedValue;
+                var description = descriptionTxtBx.Text;
+                string query = "UPDATE Documents SET Title = @title, CategoryId = @categoryId, Description = @description, ModifiedAt = @modifiedAt, ModifiedById = @modifiedById  WHERE ID = @id";
+
+                using (SqlConnection cn = Globals.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = title;
+                    cmd.Parameters.Add("@categoryId", SqlDbType.Int).Value = categoryId;
+                    cmd.Parameters.Add("@description", SqlDbType.Text).Value = description;
+                    cmd.Parameters.Add("@modifiedAt", SqlDbType.DateTime).Value = DateTime.Now;
+                    cmd.Parameters.Add("@modifiedById", SqlDbType.Int).Value = Globals.UserId;
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            */
+            }
+
+            
+
+        private void titleTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

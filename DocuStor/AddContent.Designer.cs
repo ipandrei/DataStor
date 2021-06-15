@@ -42,9 +42,11 @@ namespace DocuStor
             this.dataStorCategories = new DocuStor.DataStorCategories();
             this.documentCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.documentCategoriesTableAdapter = new DocuStor.DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -143,11 +145,22 @@ namespace DocuStor
             // 
             this.documentCategoriesTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::DocuStor.Properties.Resources.logo_2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(131, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(174, 157);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 495);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.DescriptionLbl);
@@ -162,6 +175,7 @@ namespace DocuStor
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +195,6 @@ namespace DocuStor
         private DataStorCategories dataStorCategories;
         private System.Windows.Forms.BindingSource documentCategoriesBindingSource;
         private DataStorCategoriesTableAdapters.DocumentCategoriesTableAdapter documentCategoriesTableAdapter;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
