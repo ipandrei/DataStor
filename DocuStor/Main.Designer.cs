@@ -38,6 +38,7 @@ namespace DocuStor
             this.addContent = new System.Windows.Forms.Button();
             this.searchBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.descriptionTxtBx = new System.Windows.Forms.RichTextBox();
             this.descriptionLbl = new System.Windows.Forms.Label();
             this.extensionTxtBx = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@ namespace DocuStor
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).BeginInit();
@@ -115,7 +117,8 @@ namespace DocuStor
             this.resultsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultsDgv.Location = new System.Drawing.Point(3, 50);
             this.resultsDgv.Name = "resultsDgv";
-            this.resultsDgv.RowHeadersWidth = 51;
+            this.resultsDgv.ReadOnly = true;
+            this.resultsDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.resultsDgv.RowTemplate.Height = 24;
             this.resultsDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.resultsDgv.Size = new System.Drawing.Size(1244, 941);
@@ -152,6 +155,7 @@ namespace DocuStor
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.descriptionTxtBx);
             this.panel2.Controls.Add(this.descriptionLbl);
             this.panel2.Controls.Add(this.extensionTxtBx);
@@ -175,6 +179,16 @@ namespace DocuStor
             this.panel2.Size = new System.Drawing.Size(604, 882);
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::DocuStor.Properties.Resources.doc;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(25, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(177, 188);
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
             // 
             // descriptionTxtBx
             // 
@@ -449,6 +463,7 @@ namespace DocuStor
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataStorCategories)).EndInit();
@@ -497,5 +512,6 @@ namespace DocuStor
         private System.Windows.Forms.Label descriptionLbl;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

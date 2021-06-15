@@ -25,6 +25,7 @@ namespace DocuStor
             TopLevel = true;
             CenterToScreen();
             LoadData();
+            refreshMetadata();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -99,9 +100,8 @@ namespace DocuStor
 
         }
 
-        private void resultsDgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void refreshMetadata()
         {
-
             var selectedRow = resultsDgv.SelectedRows;
             foreach (var row in selectedRow)
             {
@@ -132,6 +132,12 @@ namespace DocuStor
                 }
 
             }
+        }
+
+        private void resultsDgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            refreshMetadata();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -167,6 +173,7 @@ namespace DocuStor
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+            Application.Exit();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -229,45 +236,48 @@ namespace DocuStor
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
-            /* OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Update Content";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                var filePath = ofd.FileName;
 
-                
-            }
-
-
-            var selectedRow = resultsDgv.SelectedRows;
-            foreach (var row in selectedRow)
-            {
-                int id = (int)((DataGridViewRow)row).Cells[0].Value;
-                updateData(id);
-            }
-
-            void updateData(int id)
-            {
-                string title = titleTxtBx.Text;
-                var categoryId = categogoryCbx.SelectedValue;
-                var description = descriptionTxtBx.Text;
-                string query = "UPDATE Documents SET Title = @title, CategoryId = @categoryId, Description = @description, ModifiedAt = @modifiedAt, ModifiedById = @modifiedById  WHERE ID = @id";
-
-                using (SqlConnection cn = Globals.GetConnection())
+                var selectedRow = resultsDgv.SelectedRows;
+                foreach (var row in selectedRow)
                 {
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = title;
-                    cmd.Parameters.Add("@categoryId", SqlDbType.Int).Value = categoryId;
-                    cmd.Parameters.Add("@description", SqlDbType.Text).Value = description;
-                    cmd.Parameters.Add("@modifiedAt", SqlDbType.DateTime).Value = DateTime.Now;
-                    cmd.Parameters.Add("@modifiedById", SqlDbType.Int).Value = Globals.UserId;
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
+                    int id = (int)((DataGridViewRow)row).Cells[0].Value;
+                    updateContent(id);
                 }
-            */
-            }
 
-            
+                void updateContent(int id)
+                {
+                    using (Stream stream = File.OpenRead(filePath))
+                    {
+                        byte[] buffer = new byte[stream.Length];
+                        stream.Read(buffer, 0, buffer.Length);
+
+                        string query = "UPDATE Documents SET Content = @content,  ModifiedAt = @modifiedAt, ModifiedById = @modifiedById, Extension = @extension  WHERE ID = @id";
+
+                        var extn = new FileInfo(filePath).Extension;
+
+                        using (SqlConnection cn = Globals.GetConnection())
+                        {
+                            SqlCommand cmd = new SqlCommand(query, cn);
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                            cmd.Parameters.Add("@content", SqlDbType.VarBinary).Value = buffer;
+                            cmd.Parameters.Add("@modifiedAt", SqlDbType.DateTime).Value = DateTime.Now;
+                            cmd.Parameters.Add("@modifiedById", SqlDbType.Int).Value = Globals.UserId;
+                            cmd.Parameters.Add("@extension", SqlDbType.Char).Value = extn;
+                            cn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    refreshMetadata();
+
+                }
+            }
+        }
 
         private void titleTxtBx_TextChanged(object sender, EventArgs e)
         {
