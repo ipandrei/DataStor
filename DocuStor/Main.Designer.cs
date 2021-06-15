@@ -34,15 +34,18 @@ namespace DocuStor
             this.search = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resultsDgv = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.addContent = new System.Windows.Forms.Button();
             this.searchBtn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.saveMetdataBtn = new System.Windows.Forms.Button();
+            this.cancelMetadataBtn = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).BeginInit();
+            this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,13 +96,6 @@ namespace DocuStor
             this.resultsDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellClick);
             this.resultsDgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultsDgv_CellDoubleClick);
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(1286, 80);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(604, 941);
-            this.panel2.TabIndex = 6;
-            // 
             // addContent
             // 
             this.addContent.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -122,6 +118,36 @@ namespace DocuStor
             this.searchBtn.TabIndex = 2;
             this.searchBtn.UseVisualStyleBackColor = true;
             this.searchBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.saveMetdataBtn);
+            this.panel2.Controls.Add(this.cancelMetadataBtn);
+            this.panel2.Location = new System.Drawing.Point(1286, 80);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(604, 941);
+            this.panel2.TabIndex = 6;
+            // 
+            // saveMetdataBtn
+            // 
+            this.saveMetdataBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.saveMetdataBtn.Location = new System.Drawing.Point(308, 876);
+            this.saveMetdataBtn.Name = "saveMetdataBtn";
+            this.saveMetdataBtn.Size = new System.Drawing.Size(270, 60);
+            this.saveMetdataBtn.TabIndex = 0;
+            this.saveMetdataBtn.Text = "Save";
+            this.saveMetdataBtn.UseVisualStyleBackColor = false;
+            // 
+            // cancelMetadataBtn
+            // 
+            this.cancelMetadataBtn.Location = new System.Drawing.Point(18, 876);
+            this.cancelMetadataBtn.Name = "cancelMetadataBtn";
+            this.cancelMetadataBtn.Size = new System.Drawing.Size(270, 60);
+            this.cancelMetadataBtn.TabIndex = 0;
+            this.cancelMetadataBtn.Text = "Cancel";
+            this.cancelMetadataBtn.UseVisualStyleBackColor = true;
+            this.cancelMetadataBtn.Click += new System.EventHandler(this.cancelMetadataBtn_Click);
             // 
             // toolStrip1
             // 
@@ -149,14 +175,14 @@ namespace DocuStor
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -177,6 +203,7 @@ namespace DocuStor
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDgv)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,5 +224,7 @@ namespace DocuStor
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button saveMetdataBtn;
+        private System.Windows.Forms.Button cancelMetadataBtn;
     }
 }

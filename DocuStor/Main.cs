@@ -143,5 +143,10 @@ namespace DocuStor
         {
 
         }
+
+        private void cancelMetadataBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

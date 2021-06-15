@@ -61,6 +61,11 @@
     <Compile Include="AddContent.Designer.cs">
       <DependentUpon>AddContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataStorCategories.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataStorCategories.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Documents.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -120,6 +125,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DataStorCategories.xsc">
+      <DependentUpon>DataStorCategories.xsd</DependentUpon>
+    </None>
+    <None Include="DataStorCategories.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataStorCategories.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataStorCategories.xss">
+      <DependentUpon>DataStorCategories.xsd</DependentUpon>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

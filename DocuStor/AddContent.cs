@@ -33,6 +33,7 @@ namespace DocuStor
         {
             Globals.FileTitle = "";
             Globals.FilePath = "";
+            Globals.FileTitleWithoutExtension = "";
             Close();
         }
 
@@ -43,11 +44,11 @@ namespace DocuStor
                 byte[] buffer = new byte[stream.Length];
                 stream.Read(buffer, 0, buffer.Length);
 
-                //string extn = new FileInfo(Globals.FilePath).Extension;
                 string title = TitleTxtBx.Text;
                 string extn = new FileInfo(Globals.FileTitle).Extension;
                 var createdAt = DateTime.Now;
-                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById, Extension)VALUES(@title,@createdAt, @data, @createdById, @extension)";
+                var categoryId = comboBox1.SelectedValue;
+                string query = "INSERT INTO Documents(Title,CreatedAt,Content,CreatedById, Extension, CategoryId)VALUES(@title,@createdAt, @data, @createdById, @extension, @categoryId)";
 
                 using(SqlConnection cn = Globals.GetConnection())
                 {
@@ -57,6 +58,7 @@ namespace DocuStor
                     cmd.Parameters.Add("@data", SqlDbType.VarBinary).Value = buffer;
                     cmd.Parameters.Add("@createdbyId", SqlDbType.Int).Value = Globals.UserId;
                     cmd.Parameters.Add("@extension", SqlDbType.Char).Value = extn;
+                    cmd.Parameters.Add("@categoryId", SqlDbType.Int).Value = categoryId;
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -65,6 +67,21 @@ namespace DocuStor
             }
         }
 
-        
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataStorCategoriesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddContent_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataStorCategories.DocumentCategories' table. You can move, or remove it, as needed.
+            this.documentCategoriesTableAdapter.Fill(this.dataStorCategories.DocumentCategories);
+
+        }
     }
 }
